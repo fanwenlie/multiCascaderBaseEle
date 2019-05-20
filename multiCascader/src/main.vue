@@ -379,6 +379,7 @@ export default {
       this.$emit('visible-change', value);
     },
     value(value) {
+      console.log('aaa', value);
       this.currentValue = value;
       if (this.filterable && !this.multiple) {
         this.inputLength = 20;

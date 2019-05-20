@@ -4,7 +4,8 @@
 # 更新
 基于[ZhenyuCheng/multiCascaderBaseEle](https://github.com/ZhenyuCheng/multiCascaderBaseEle)组件fork之后修改
 
-去掉了原本组件中的console.log()没注释的bug
+修复了main.vue监听options字段，代码中console.log()没注释的bug；
+修复了menu.vue中只要点击menu或者checkbox会自动滚动到顶部的bug；
 
 # Usage
 ## install

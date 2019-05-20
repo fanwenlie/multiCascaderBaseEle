@@ -12489,6 +12489,7 @@ var _default2 = {
       this.$emit('visible-change', value);
     },
     value: function value(_value) {
+      console.log('aaa', _value);
       this.currentValue = _value;
 
       if (this.filterable && !this.multiple) {
