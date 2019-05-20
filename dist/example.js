@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "71b5bca941157b06f538"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "df4730990faa7bce33e8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -14786,7 +14786,6 @@ var _default2 = {
       this.$emit('visible-change', value);
     },
     value: function value(_value) {
-      console.log('aaa', _value);
       this.currentValue = _value;
 
       if (this.filterable && !this.multiple) {
