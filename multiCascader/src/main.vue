@@ -400,7 +400,7 @@ export default {
     options: {
       deep: true,
       handler(value) {
-        console.log(value);
+        // console.log(value);
         if (!this.menu) {
           this.initMenu();
         }

@@ -1,6 +1,11 @@
 # multiCascaderBaseEle
 基于element-ui实现的多选级联组件，完全继承element-ui级联组件功能
 
+# 更新
+基于[ZhenyuCheng/multiCascaderBaseEle](https://github.com/ZhenyuCheng/multiCascaderBaseEle)组件fork之后修改
+
+去掉了原本组件中的console.log()没注释的bug
+
 # Usage
 ## install
 ``` bash

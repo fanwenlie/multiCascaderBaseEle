@@ -461,13 +461,13 @@
             } else {
               events.on.click = () => {
                 this.select(item, menuIndex);
-                this.$nextTick(() => this.scrollMenu(this.$refs.menus[menuIndex]));
+                // this.$nextTick(() => this.scrollMenu(this.$refs.menus[menuIndex]));
               };
             }
             menuItemEvents.on.change = (valueCheckBox) => {
               if (multiple) {
                 this.select(item, menuIndex, valueCheckBox);
-                this.$nextTick(() => this.scrollMenu(this.$refs.menus[menuIndex]));
+                // this.$nextTick(() => this.scrollMenu(this.$refs.menus[menuIndex]));
               }
             };
           }
