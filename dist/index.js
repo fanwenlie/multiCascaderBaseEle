@@ -12513,7 +12513,6 @@ var _default2 = {
     options: {
       deep: true,
       handler: function handler(value) {
-        // console.log(value);
         if (!this.menu) {
           this.initMenu();
         }

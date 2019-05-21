@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "df4730990faa7bce33e8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "286f09c2466cae5dc394"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12083,7 +12083,7 @@ module.exports = function (it) {
 /* 19 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.6' };
+var core = module.exports = { version: '2.6.7' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -14810,7 +14810,6 @@ var _default2 = {
     options: {
       deep: true,
       handler: function handler(value) {
-        // console.log(value);
         if (!this.menu) {
           this.initMenu();
         }
@@ -39528,7 +39527,7 @@ var SymbolRegistry = shared('symbol-registry');
 var AllSymbols = shared('symbols');
 var OPSymbols = shared('op-symbols');
 var ObjectProto = Object[PROTOTYPE];
-var USE_NATIVE = typeof $Symbol == 'function';
+var USE_NATIVE = typeof $Symbol == 'function' && !!$GOPS.f;
 var QObject = global.QObject;
 // Don't use setters in Qt Script, https://github.com/zloirock/core-js/issues/173
 var setter = !QObject || !QObject[PROTOTYPE] || !QObject[PROTOTYPE].findChild;
