@@ -45,14 +45,15 @@ Vue.use(multiCascader)
 1. 如果`el-multi-cascader`组件默认值为空时显示undefined，临时解决方案为
 
 ```js
-
-this.$nextTick(() => {
-  const input = document.querySelector('.multi-cascader .el-input__inner');
-  const inputVal = input.value;
-  if (inputVal === '' || inputVal === 'undefined') {
-    input.value = '';
-  }
-});
+mounted() {
+  this.$nextTick(() => {
+    const input = document.querySelector('.multi-cascader .el-input__inner');
+    const inputVal = input.value;
+    if (inputVal === '' || inputVal === 'undefined') {
+      input.value = '';
+    }
+  });
+}
 
 ```
 

@@ -12239,6 +12239,7 @@ var _util = __webpack_require__(3);
 //
 //
 //
+//
 var popperMixin = {
   props: {
     placement: {
@@ -13272,6 +13273,9 @@ var render = function() {
         {
           ref: "input",
           class: { "is-focus": _vm.menuVisible },
+          style: {
+            visibility: _vm.currentLabels.length ? "hidden" : "visible"
+          },
           attrs: {
             readonly: _vm.readonly,
             placeholder: _vm.currentLabels.length ? undefined : _vm.placeholder,

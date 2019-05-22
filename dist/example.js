@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "286f09c2466cae5dc394"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "60c18df4bf1e1e8be916"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -14536,6 +14536,7 @@ var _util = __webpack_require__(22);
 //
 //
 //
+//
 var popperMixin = {
   props: {
     placement: {
@@ -17439,6 +17440,9 @@ var render = function() {
         {
           ref: "input",
           class: { "is-focus": _vm.menuVisible },
+          style: {
+            visibility: _vm.currentLabels.length ? "hidden" : "visible"
+          },
           attrs: {
             readonly: _vm.readonly,
             placeholder: _vm.currentLabels.length ? undefined : _vm.placeholder,
