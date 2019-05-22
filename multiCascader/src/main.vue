@@ -31,7 +31,7 @@
       :size="size"
       :disabled="cascaderDisabled"
       :class="{ 'is-focus': menuVisible }"
-      :style="{ visibility: currentLabels.length ? 'hidden' : 'visible'}"
+      :style="{ visibility: multiple && currentLabels.length ? 'hidden' : 'visible'}"
     >
       <template slot="suffix">
         <i
@@ -223,7 +223,8 @@ export default {
           children: 'children',
           label: 'label',
           value: 'value',
-          disabled: 'disabled'
+          disabled: 'disabled',
+          disabledCheckbox: 'disabledCheckbox'
         };
       }
     },
@@ -323,6 +324,9 @@ export default {
     },
     disabledKey() {
       return this.props.disabled || 'disabled';
+    },
+    disabledCheckboxKey() {
+      return this.props.disabledCheckbox || 'disabledCheckbox';
     },
     currentLabels() {
       let labels = [];
@@ -524,7 +528,8 @@ export default {
             path: optionStack.map(item => item[this.valueKey]),
             isLeafNode: optionStack[optionStack.length - 1].isLeafNode,
             label: this.renderFilteredOptionLabel(value, optionStack),
-            disabled: optionStack.some(item => item[this.disabledKey])
+            disabled: optionStack.some(item => item[this.disabledKey]),
+            disabledCheckbox: optionStack.some(item => item[this.disabledCheckboxKey])
           };
         });
       } else {

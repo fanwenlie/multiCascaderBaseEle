@@ -40,6 +40,8 @@ Vue.use(multiCascader)
 # 功能实例，以及选项
 [查看demo](https://zhenyucheng.github.io/multiCascaderBaseEle/dist/index.html)
 
+props增加disabledCheckbox字段，用来实现在多选时禁止选中checkbox，但又保留能选择children的功能
+
 # 备注
 
 1. 如果`el-multi-cascader`组件默认值为空时显示undefined，临时解决方案为
@@ -59,10 +61,15 @@ mounted() {
 
 # 更新
 
-1. 2019-05-21
+1. 2019-05-22
 
-- 修复了main.vue监听options字段，代码中console.log()没注释的bug；
+- fixed: 修复了当组件有值时，在第二个input中不断输入单词，第一个input值也会显示出来的bug
+- add: props增加disabledCheckbox字段，用来实现在多选时禁止选中checkbox，但又保留能选择children的功能
 
-- 修复了menu.vue中只要点击menu或者checkbox会自动滚动到顶部的bug；
+3. 2019-05-21
+
+- fixed: 修复了main.vue监听options字段，代码中console.log()没注释的bug；
+
+- fixed: 修复了menu.vue中只要点击menu或者checkbox会自动滚动到顶部的bug；
 
 

@@ -112,7 +112,8 @@ export default {
             label: "默认",
             id: -1,
             children: [],
-            value: -1
+            value: -1,
+            disabledCheckbox: false,
         },
         {
             label: "电信",

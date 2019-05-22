@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "60c18df4bf1e1e8be916"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "30d696c9a5d5d1e18ed6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -13679,7 +13679,7 @@ var _checkbox = _interopRequireDefault(__webpack_require__(120));
 var copyArray = function copyArray(arr, props) {
   if (!arr || !Array.isArray(arr) || !props) return arr;
   var result = [];
-  var configurableProps = ['__IS__FLAT__OPTIONS', 'label', 'value', 'disabled', 'parent', 'path', 'isLeafNode'];
+  var configurableProps = ['__IS__FLAT__OPTIONS', 'label', 'value', 'disabled', 'disabledCheckbox', 'parent', 'path', 'isLeafNode'];
   var childrenProp = props.children || 'children';
   arr.forEach(function (item) {
     var itemCopy = {};
@@ -13767,7 +13767,7 @@ var _default = {
         var _this = this;
 
         var activeValue = this.activeValue;
-        var configurableProps = ['label', 'value', 'children', 'disabled']; // 需要记下路径每个item的路径, 方便渎职
+        var configurableProps = ['label', 'value', 'children', 'disabled', 'disabledCheckbox']; // 需要记下路径每个item的路径, 方便渎职
 
         var formatOptions = function formatOptions(options, currentPath) {
           options.forEach(function (option) {
@@ -14275,9 +14275,9 @@ var _default = {
           "class": "el-cascader-checkbox",
           attrs: {
             indeterminate: itemStatus === CHILD_SOME_CHECKED,
-            value: itemStatus === CHECKED || itemStatus === CHILD_ALL_CHECKED,
-            disabled: item.disabled || !changeOnSelect && Array.isArray(item.children) && item.children.length > 0 // 如果item是disabled的，或者只能选末级的
-
+            value: itemStatus === CHECKED || itemStatus === CHILD_ALL_CHECKED // 如果item是disabled的，或者只能选末级的, 或者只dsiable checkbox
+            ,
+            disabled: item.disabled || item.disabledCheckbox || !changeOnSelect && Array.isArray(item.children) && item.children.length > 0
           }
         }, menuItemEvents])) : null, h("span", [item.label])]);
       });
@@ -14620,7 +14620,8 @@ var _default2 = {
           children: 'children',
           label: 'label',
           value: 'value',
-          disabled: 'disabled'
+          disabled: 'disabled',
+          disabledCheckbox: 'disabledCheckbox'
         };
       }
     },
@@ -14721,6 +14722,9 @@ var _default2 = {
     },
     disabledKey: function disabledKey() {
       return this.props.disabled || 'disabled';
+    },
+    disabledCheckboxKey: function disabledCheckboxKey() {
+      return this.props.disabledCheckbox || 'disabledCheckbox';
     },
     currentLabels: function currentLabels() {
       var _this = this;
@@ -14964,6 +14968,9 @@ var _default2 = {
             label: _this5.renderFilteredOptionLabel(value, optionStack),
             disabled: optionStack.some(function (item) {
               return item[_this5.disabledKey];
+            }),
+            disabledCheckbox: optionStack.some(function (item) {
+              return item[_this5.disabledCheckboxKey];
             })
           };
         });
@@ -15313,7 +15320,8 @@ var _default = {
       label: "默认",
       id: -1,
       children: [],
-      value: -1
+      value: -1,
+      disabledCheckbox: false
     }, {
       label: "电信",
       children: [{
@@ -17441,7 +17449,8 @@ var render = function() {
           ref: "input",
           class: { "is-focus": _vm.menuVisible },
           style: {
-            visibility: _vm.currentLabels.length ? "hidden" : "visible"
+            visibility:
+              _vm.multiple && _vm.currentLabels.length ? "hidden" : "visible"
           },
           attrs: {
             readonly: _vm.readonly,

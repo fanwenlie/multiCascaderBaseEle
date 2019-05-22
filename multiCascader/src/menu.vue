@@ -8,7 +8,7 @@
   const copyArray = (arr, props) => {
     if (!arr || !Array.isArray(arr) || !props) return arr;
     const result = [];
-    const configurableProps = ['__IS__FLAT__OPTIONS', 'label', 'value', 'disabled', 'parent', 'path', 'isLeafNode'];
+    const configurableProps = ['__IS__FLAT__OPTIONS', 'label', 'value', 'disabled', 'disabledCheckbox', 'parent', 'path', 'isLeafNode'];
     const childrenProp = props.children || 'children';
     arr.forEach(item => {
       const itemCopy = {};
@@ -92,7 +92,7 @@
       activeOptions: {
         get() {
           const activeValue = this.activeValue;
-          const configurableProps = ['label', 'value', 'children', 'disabled'];
+          const configurableProps = ['label', 'value', 'children', 'disabled', 'disabledCheckbox'];
           // 需要记下路径每个item的路径, 方便渎职
           const formatOptions = (options, currentPath) => {
             options.forEach(option => {
@@ -501,7 +501,8 @@
                   class="el-cascader-checkbox"
                   indeterminate={itemStatus === CHILD_SOME_CHECKED}
                   value={itemStatus === CHECKED || itemStatus === CHILD_ALL_CHECKED}
-                  disabled={item.disabled || (!changeOnSelect && Array.isArray(item.children) && item.children.length > 0)} // 如果item是disabled的，或者只能选末级的
+                  // 如果item是disabled的，或者只能选末级的, 或者只dsiable checkbox
+                  disabled={item.disabled || item.disabledCheckbox || (!changeOnSelect && Array.isArray(item.children) && item.children.length > 0)} 
                   {...menuItemEvents}
                 ></el-checkbox>
                 : null}
