@@ -31,6 +31,7 @@
       :size="size"
       :disabled="cascaderDisabled"
       :class="{ 'is-focus': menuVisible }"
+      :style="{ visibility: currentLabels.length ? 'hidden' : 'visible'}"
     >
       <template slot="suffix">
         <i
