@@ -290,10 +290,10 @@
         } else {
           this.activeValue = [item.value];
         }
-        if (this.multiple) {
+        if (this.multiple && (multipleCheckBox !== void 0)) {
           this.$emit('pick', this.activeMultiValue.slice());
           this.value = this.activeMultiValue.slice();
-        } else {
+        } else if(!this.multiple && multipleCheckBox === void 0){
           this.$emit('pick', this.activeValue.slice());
         }
       },
@@ -321,7 +321,10 @@
         }
       },
       scrollMenu(menu) {
-        scrollIntoView(menu, menu.getElementsByClassName('is-active')[0]);
+        const activeMenu = menu.getElementsByClassName('is-active')[0]
+        if (activeMenu) {
+          scrollIntoView(menu, activeMenu);
+        }
       },
       handleMenuEnter() {
         this.$nextTick(() => this.$refs.menus.forEach(menu => this.scrollMenu(menu)));

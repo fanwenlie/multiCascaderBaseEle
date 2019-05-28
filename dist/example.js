@@ -62,7 +62,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "30d696c9a5d5d1e18ed6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f3db3be4a9885115445b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -14030,10 +14030,10 @@ var _default = {
         this.activeValue = [item.value];
       }
 
-      if (this.multiple) {
+      if (this.multiple && multipleCheckBox !== void 0) {
         this.$emit('pick', this.activeMultiValue.slice());
         this.value = this.activeMultiValue.slice();
-      } else {
+      } else if (!this.multiple && multipleCheckBox === void 0) {
         this.$emit('pick', this.activeValue.slice());
       }
     },
@@ -14063,7 +14063,11 @@ var _default = {
       }
     },
     scrollMenu: function scrollMenu(menu) {
-      (0, _scrollIntoView.default)(menu, menu.getElementsByClassName('is-active')[0]);
+      var activeMenu = menu.getElementsByClassName('is-active')[0];
+
+      if (activeMenu) {
+        (0, _scrollIntoView.default)(menu, activeMenu);
+      }
     },
     handleMenuEnter: function handleMenuEnter() {
       var _this6 = this;
