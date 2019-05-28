@@ -61,7 +61,11 @@ mounted() {
 
 # 更新
 
-1. 2019-05-22
+1. 2019-05-28
+
+- fixed: 修复点击一次checkbox，change事件触发多次的问题
+
+2. 2019-05-22
 
 - fixed: 修复了当组件有值时，在第二个input中不断输入单词，第一个input值也会显示出来的bug
 - add: props增加disabledCheckbox字段，用来实现在多选时禁止选中checkbox，但又保留能选择children的功能
