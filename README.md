@@ -8,7 +8,7 @@
 
 #### 直接在package.json中的dependencies字段粘贴以下代码
 ```json
-"multi-cascader-base-ele": "git://github.com/fanwenlie/multiCascaderBaseEle.git"
+"multi-cascader-base-ele": "https://github.com/fanwenlie/multiCascaderBaseEle.git"
 ```
 然后`yarn install`, 即可下载安装
 
