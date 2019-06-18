@@ -61,7 +61,12 @@ mounted() {
 
 # 更新
 
-1. 2019-05-28
+1. 2019-06-18
+  
+- fixed: element-ui-2.9.1版本原生cascader组件添加多选功能，导致该组件样式完全错乱，修复样式错乱的问题
+- fixed: 修复搜索时，父元素disabledCheckbox为true，disabledCheckbox为false的子元素无法选择的bug
+
+2. 2019-05-28
 
 - fixed: 修复点击一次checkbox，change事件触发多次的问题
 

@@ -12062,7 +12062,7 @@ var _default = {
         name: "show",
         value: visible
       }],
-      "class": ['el-cascader-menus el-popper', popperClass],
+      "class": ['el-cascader-menus el-popper cm-multi-cascader-menus', popperClass],
       ref: "wrapper"
     }, [h("div", {
       attrs: {
@@ -12676,9 +12676,7 @@ var _default2 = {
             disabled: optionStack.some(function (item) {
               return item[_this5.disabledKey];
             }),
-            disabledCheckbox: optionStack.some(function (item) {
-              return item[_this5.disabledCheckboxKey];
-            })
+            disabledCheckbox: optionStack[optionStack.length - 1][_this5.disabledCheckboxKey]
           };
         });
       } else {
@@ -13253,7 +13251,7 @@ var render = function() {
         }
       ],
       ref: "reference",
-      staticClass: "el-cascader",
+      staticClass: "el-cascader cm-multi-cascader",
       class: [
         {
           "is-opened": _vm.menuVisible,
@@ -13484,7 +13482,8 @@ var render = function() {
                 _vm.filterable && _vm.currentLabels.length
                   ? _c("el-input", {
                       ref: "multiInput",
-                      staticClass: "el-multicascader__input",
+                      staticClass:
+                        "el-multicascader__input el-multicascader__search",
                       class: { "is-focus": _vm.menuVisible },
                       style: {
                         "flex-grow": "1",
@@ -19264,7 +19263,7 @@ exports = module.exports = __webpack_require__(20)(false);
 
 
 // module
-exports.push([module.i, "\n.el-multicascader__label {\n  height: auto;\n  position: absolute;\n  line-height: normal;\n  white-space: normal;\n  z-index: 1;\n  top: 50%;\n  transform: translateY(-50%);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding: 0;\n  background: transparent;\n  margin-left: 1px;\n}\n.el-multicascader__label > span {\n  display: contents;\n}\n.el-multicascader__input {\n  width: auto;\n}\n.el-multicascader__input > input {\n  border: none;\n  padding: 0;\n  width: calc(100% - 4px);\n  margin: 2px 0 2px 6px;\n  display: inline-block;\n}\n.el-tag__close {\n  margin-top: -2px;\n}\n.el-tag {\n  box-sizing: border-box;\n  border-color: transparent;\n  margin: 2px 0 2px 6px;\n  background-color: #f0f2f5;\n}\n.el-tag__close.el-icon-close {\n  background-color: #c0c4cc;\n  right: -7px;\n  top: 0;\n  color: #fff;\n}\n.el-tag__close.el-icon-close:hover {\n  background-color: #909399;\n}\n.el-tag__close.el-icon-close::before {\n  display: block;\n  transform: translate(0, 0.5px);\n}\n", ""]);
+exports.push([module.i, "\n.el-multicascader__label {\n  height: auto;\n  position: absolute;\n  line-height: normal;\n  white-space: normal;\n  z-index: 1;\n  top: 50%;\n  transform: translateY(-50%);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-align: center;\n      align-items: center;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  padding: 0;\n  background: transparent;\n  margin-left: 1px;\n}\n.el-multicascader__label > span {\n  display: contents;\n}\n.el-multicascader__input {\n  width: auto;\n}\n.el-multicascader__input > input {\n  border: none;\n  padding: 0;\n  width: calc(100% - 4px);\n  margin: 2px 0 2px 6px;\n  display: inline-block;\n}\n.el-tag__close {\n  margin-top: -2px;\n}\n.el-tag {\n  box-sizing: border-box;\n  border-color: transparent;\n  margin: 2px 0 2px 6px;\n  background-color: #f0f2f5;\n}\n.el-tag__close.el-icon-close {\n  background-color: #c0c4cc;\n  right: -7px;\n  top: 0;\n  color: #fff;\n}\n.el-tag__close.el-icon-close:hover {\n  background-color: #909399;\n}\n.el-tag__close.el-icon-close::before {\n  display: block;\n  transform: translate(0, 0.5px);\n}\n.cm-multi-cascader-menus {\n  white-space: nowrap;\n  background: #fff;\n  position: absolute;\n  margin: 5px 0;\n  z-index: 2;\n  border: 1px solid #E4E7ED;\n  border-radius: 2px;\n  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);\n}\n.cm-multi-cascader-menus .el-cascader-menu {\n  display: inline-block;\n  vertical-align: top;\n  height: 204px;\n  overflow: auto;\n  border-right: solid 1px #E4E7ED;\n  box-sizing: border-box;\n  margin: 0;\n  padding: 6px 0;\n  min-width: 160px;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item--extensible:after {\n  font-family: element-icons;\n  content: \"\\E6E0\";\n  font-size: 14px;\n  color: #bfcbd9;\n  position: absolute;\n  right: 15px;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item.is-active {\n  color: #409EFF;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item {\n  font-size: 14px;\n  padding: 8px 20px;\n  position: relative;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  color: #606266;\n  height: 34px;\n  line-height: 1.5;\n  box-sizing: border-box;\n  cursor: pointer;\n  outline: 0;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item.is-disabled {\n  color: #C0C4CC;\n  background-color: #FFF;\n  cursor: not-allowed;\n}\n.cm-multi-cascader-menus .el-cascader-checkbox .el-checkbox__input {\n  padding-right: 10px;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item:focus:not(:active), .cm-multi-cascader-menus .el-cascader-menu__item:hover {\n  background-color: #F5F7FA;\n}\n.cm-multi-cascader-menus .el-cascader-menu--flexible .el-cascader-menu__item {\n  overflow: visible;\n}\n.cm-multi-cascader-menus .el-cascader-menu__item__keyword {\n  font-weight: 700;\n}\n", ""]);
 
 // exports
 

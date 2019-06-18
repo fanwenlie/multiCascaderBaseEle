@@ -117,6 +117,7 @@ export default {
         },
         {
             label: "电信",
+            disabledCheckbox: true,
             children: [{
                 label: "华东电信",
                 children: [{

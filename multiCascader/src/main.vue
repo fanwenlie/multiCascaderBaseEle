@@ -1,6 +1,6 @@
 <template>
   <span
-    class="el-cascader"
+    class="el-cascader cm-multi-cascader"
     :class="[
       {
         'is-opened': menuVisible,
@@ -93,7 +93,7 @@
         </transition-group>
         <el-input
           ref="multiInput"
-          class="el-multicascader__input"
+          class="el-multicascader__input el-multicascader__search"
           :readonly="readonly"
           :placeholder="currentLabels.length ? undefined : placeholder"
           v-model="inputValue"
@@ -529,7 +529,7 @@ export default {
             isLeafNode: optionStack[optionStack.length - 1].isLeafNode,
             label: this.renderFilteredOptionLabel(value, optionStack),
             disabled: optionStack.some(item => item[this.disabledKey]),
-            disabledCheckbox: optionStack.some(item => item[this.disabledCheckboxKey])
+            disabledCheckbox: optionStack[optionStack.length - 1][this.disabledCheckboxKey],
           };
         });
       } else {
@@ -773,5 +773,74 @@ export default {
       }
     }
   }
+
+.cm-multi-cascader {
+  
+}
+.cm-multi-cascader-menus {
+  white-space: nowrap;
+  background: #fff;
+  position: absolute;
+  margin: 5px 0;
+  z-index: 2;
+  border: 1px solid #E4E7ED;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+
+  .el-cascader-menu{
+    display: inline-block;
+    vertical-align: top;
+    height: 204px;
+    overflow: auto;
+    border-right: solid 1px #E4E7ED;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 6px 0;
+    min-width: 160px;
+  }
+  .el-cascader-menu__item--extensible:after {
+    font-family: element-icons;
+    content: "\E6E0";
+    font-size: 14px;
+    color: #bfcbd9;
+    position: absolute;
+    right: 15px;
+  }
+  .el-cascader-menu__item.is-active {
+    color: #409EFF;
+  }
+
+  .el-cascader-menu__item {
+    font-size: 14px;
+    padding: 8px 20px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #606266;
+    height: 34px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: 0;
+  }
+  .el-cascader-menu__item.is-disabled {
+    color: #C0C4CC;
+    background-color: #FFF;
+    cursor: not-allowed;
+  }
+  .el-cascader-checkbox .el-checkbox__input {
+    padding-right: 10px;
+  }
+  .el-cascader-menu__item:focus:not(:active), .el-cascader-menu__item:hover {
+    background-color: #F5F7FA;
+  }
+  .el-cascader-menu--flexible .el-cascader-menu__item {
+      overflow: visible;
+  }
+  .el-cascader-menu__item__keyword {
+    font-weight: 700;
+  }
+}
 </style>
 

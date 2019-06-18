@@ -582,7 +582,7 @@
           <div
             v-show={visible}
             class={[
-              'el-cascader-menus el-popper',
+              'el-cascader-menus el-popper cm-multi-cascader-menus',
               popperClass
             ]}
             ref="wrapper"
