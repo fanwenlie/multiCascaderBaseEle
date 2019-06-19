@@ -596,13 +596,4 @@
   };
 </script>
 
-<style lang="less">
-.el-cascader-checkbox {
-  margin: 0;
-
-  .el-checkbox__input {
-    padding-right: 10px;
-  }
-}
-</style>
 

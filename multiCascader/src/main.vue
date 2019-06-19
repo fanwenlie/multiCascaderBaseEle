@@ -716,6 +716,7 @@ export default {
 </script>
 
 <style lang="less">
+.cm-multi-cascader {
   .el-multicascader__label {
     height: auto;
     position: absolute;
@@ -735,7 +736,6 @@ export default {
       display: contents;
     }
   }
-
   .el-multicascader__input {
     width: auto;
     > input {
@@ -773,9 +773,6 @@ export default {
       }
     }
   }
-
-.cm-multi-cascader {
-  
 }
 .cm-multi-cascader-menus {
   white-space: nowrap;
@@ -787,12 +784,19 @@ export default {
   border-radius: 2px;
   box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 
+  .el-cascader-checkbox {
+    margin: 0;
+
+    .el-checkbox__input {
+      padding-right: 10px;
+    }
+  }
+
   .el-cascader-menu{
     display: inline-block;
     vertical-align: top;
     height: 204px;
     overflow: auto;
-    border-right: solid 1px #E4E7ED;
     box-sizing: border-box;
     margin: 0;
     padding: 6px 0;
