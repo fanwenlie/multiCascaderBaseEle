@@ -806,6 +806,9 @@ export default {
     position: absolute;
     right: 15px;
   }
+  .el-cascader-menu__item span {
+      padding-right: 10px;
+  }
   .el-cascader-menu__item.is-active {
     color: #409EFF;
   }
